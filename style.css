@@ -1,0 +1,33 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    --container-width: 600px;
+    --container-height: 600px;
+}
+
+.container{
+    width: var(--container-width);
+    height: var(--container-height);
+
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.row,
+.square{
+    flex-grow: 1;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+}
+
+.square{
+}
