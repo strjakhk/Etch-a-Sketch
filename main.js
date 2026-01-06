@@ -19,6 +19,23 @@ let activeColor = firstColor;
 
 drawGrid(defaultGridSize);
 
+
+function drawGrid(size){
+    if (container.hasChildNodes()) container.innerHTML = "";
+    for (let row = 0; row < size; row++){
+        const divRow = document.createElement("div");
+        divRow.classList = "row";
+        for (let column = 0; column < size; column++){
+            const square = document.createElement("div");
+            square.classList = "square";
+            square.style.backgroundColor = bgColor;
+            divRow.appendChild(square);
+        }
+        container.appendChild(divRow)
+    }
+    setEventListeners();
+}
+
 /**
  * Clear button
  */
@@ -54,28 +71,13 @@ secondColorInput.addEventListener("input", () =>{
 /**
  * size handler
  */
+sizeRange.addEventListener("dragstart", (e) => e.preventDefault());
 sizeRange.addEventListener("input", () => {
     const size = sizeRange.value;
     const sizeValueNode = document.querySelector("#size-value");
     sizeValueNode.textContent = `${size} x ${size}`;
     drawGrid(size);
 })
-
-function drawGrid(size){
-    if (container.hasChildNodes()) container.innerHTML = "";
-    for (let row = 0; row < size; row++){
-        const divRow = document.createElement("div");
-        divRow.classList = "row";
-        for (let column = 0; column < size; column++){
-            const square = document.createElement("div");
-            square.classList = "square";
-            square.style.backgroundColor = bgColor;
-            divRow.appendChild(square);
-        }
-        container.appendChild(divRow)
-    }
-    setEventListeners();
-}
 
 /**
  * 
