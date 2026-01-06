@@ -4,13 +4,13 @@ Project created for The Odin Project course. It's a simple board that you can us
 
 ## Features
 
-Draw whatever you want on the board. You can choose a primary and secondary color by clicking on the color picker on the left panel.
+* Draw whatever you want on the board. You can choose a primary and secondary color by clicking on the color picker on the left panel.
 
-You can also select the pencil, erase and wipe tools on the same left panel.
+* You can also select the pencil, erase and wipe tools on the same left panel.
 
-The last option on the panel allows you to draw with a random color for each square.
+* The last option on the panel allows you to draw with a random color for each square.
 
-Finally, you can change the size of the squares on the board using the slider bar at the bottom.
+* Finally, you can change the size of the squares on the board using the slider bar at the bottom.
 
 ![alt text](https://github.com/strjakhk/Etch-a-Sketch/blob/main/etch-a-sketch.png)
 
