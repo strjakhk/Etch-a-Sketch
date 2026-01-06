@@ -5,8 +5,8 @@
 }
 
 :root{
-    --container-width: 600px;
-    --container-height: 600px;
+    --container-width: 650px;
+    --container-height: 650px;
 }
 
 .container{
@@ -30,4 +30,5 @@
 }
 
 .square{
+    transition: background-color 0.1s ease;
 }

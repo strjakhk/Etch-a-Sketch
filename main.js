@@ -1,45 +1,68 @@
 const container = document.querySelector(".container");
 
-const defaultGridSize = 32;
-const defaultDivColor = "#ddd";
+const defaultGridSize = 64;
 
-let selectedColor = "#AA0033";
+let bgColor = "#ddd";
+let firstColor = "#333";
+let secondColor = bgColor;
+let activeColor = firstColor;
 
 drawGrid(defaultGridSize);
 
-// set event listener for squres in the grid
+/**
+ * 
+ * On mouse enter, print the square with activeColor
+ * On mouse leave, if the square is not "printed", print it with backgroundColor
+ * While moving mouse inside the div, check for click inputs
+ * If left click, activeColor equals to firstColor
+ * If right click, activeColor equales to secondColor
+ * Set the square status to printed by adding class "printed"
+ * Print the square with activeColor
+ * 
+ */
 document.querySelectorAll(".square").forEach(square => {
-    square.addEventListener("contextmenu", (e) => {
-        e.preventDefault()
-    });
-    square.addEventListener("mouseenter", () => {
-        printSquare(square, selectedColor);
+    square.addEventListener("contextmenu", (e) => e.preventDefault());
+    square.addEventListener("dragstart", (e) => e.preventDefault());
+
+    square.addEventListener("mouseenter", () => {        
+        if (!square.classList.contains("printed")){
+            printSquare(square, activeColor);        
+        }
     });
     square.addEventListener("mouseleave", () => {
         if (!square.classList.contains("printed")){
-            printSquare(square, defaultDivColor);
+            printSquare(square, bgColor);
         }
     });
     square.addEventListener("mousemove", (e) => {
-        if (e.buttons === 1 && !square.classList.contains("printed")){
-            square.classList.add("printed");
-        }
-
-        if (e.buttons === 2 && square.classList.contains("printed")){
-            square.classList.remove("printed");
-        }
+        if (updateActiveColor(e.buttons)){
+            updatePrintedStatus(square, activeColor);
+            printSquare(square, activeColor);        
+        } 
     })
     square.addEventListener("mousedown", (e) => {
-        if (e.buttons & 1){
-            printSquare(square, selectedColor);
-            square.classList.add("printed");
-        }else if (square.classList.contains("printed")){
-            printSquare(square, defaultDivColor);
-            square.classList.remove("printed");
-        }
+        if (updateActiveColor(e.buttons)){
+            updatePrintedStatus(square, activeColor);
+            printSquare(square, activeColor);
+        } 
     });
 });
 
+function updateActiveColor(button){
+    if (button){
+        activeColor = button & 1 ? firstColor : secondColor;
+        return true;
+    }
+    return false;
+}
+
+function updatePrintedStatus(square, color){
+    if (color == bgColor){
+        square.classList.remove("printed");
+    }else if (!square.classList.contains("printed")){
+        square.classList.add("printed");
+    }
+}
 
 function drawGrid(size){
     for (let row = 0; row < size; row++){
@@ -48,7 +71,7 @@ function drawGrid(size){
         for (let column = 0; column < size; column++){
             const square = document.createElement("div");
             square.classList = "square";
-            square.style.backgroundColor = defaultDivColor;
+            square.style.backgroundColor = bgColor;
             divRow.appendChild(square);
         }
         container.appendChild(divRow)
