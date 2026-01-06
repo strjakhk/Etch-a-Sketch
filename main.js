@@ -1,7 +1,9 @@
 const container = document.querySelector(".container");
 const sizeRange = document.querySelector("#size");
-const firstColorPicker = document.querySelector("#color-1");
-const secondColorPicker = document.querySelector("#color-2");
+const firstColorInput = document.querySelector("#color-1");
+const secondColorInput = document.querySelector("#color-2");
+const pincelBtn = document.querySelector("#pincel");
+const eraserBtn = document.querySelector("#eraser");
 
 const defaultGridSize = 16;
 
@@ -13,14 +15,30 @@ let activeColor = firstColor;
 drawGrid(defaultGridSize);
 
 /**
- * Color pickers
+ * Pincel
  */
-firstColorPicker.addEventListener("input", () =>{
-    firstColor = firstColorPicker.value;
+pincelBtn.addEventListener("click", () =>{
+    firstColor = firstColorInput.value;
+    secondColor = secondColorInput.value;
 });
 
-secondColorPicker.addEventListener("input", () =>{
-    secondColor = secondColorPicker.value;
+/**
+ * Eraser
+ */
+eraserBtn.addEventListener("click", () => {
+    firstColor = bgColor;
+    secondColor = bgColor;
+});
+
+/**
+ * Color Pickers
+ */
+firstColorInput.addEventListener("input", () =>{
+    firstColor = firstColorInput.value;
+});
+
+secondColorInput.addEventListener("input", () =>{
+    secondColor = secondColorInput.value;
 });
 
 /**
