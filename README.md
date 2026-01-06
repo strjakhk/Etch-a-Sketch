@@ -1,5 +1,7 @@
 # Etch-a-Sketch
 
+https://strjakhk.github.io/Etch-a-Sketch/
+
 Project created for The Odin Project course. It's a simple board that you can use to draw whatever you want.
 
 ## Features
