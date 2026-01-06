@@ -5,6 +5,9 @@ const secondColorInput = document.querySelector("#color-2");
 const pincelBtn = document.querySelector("#pincel");
 const eraserBtn = document.querySelector("#eraser");
 
+/** @type {HTMLInputElement} */
+const randomColorBox = document.querySelector("#random-color");
+
 const defaultGridSize = 16;
 
 let bgColor = "#ddd";
@@ -96,7 +99,7 @@ function setEventListeners(){
         square.addEventListener("mousemove", (e) => {
             if (updateActiveColor(e.buttons)){
                 updatePrintedStatus(square, activeColor);
-                printSquare(square, activeColor);        
+                printSquare(square, activeColor);
             } 
         })
         square.addEventListener("mousedown", (e) => {
@@ -109,10 +112,15 @@ function setEventListeners(){
 }
 
 function updateActiveColor(button){
+    if (button & 1 && randomColorBox.checked){
+        activeColor = getRandomColor();
+        return true;
+    }
     if (button){
         activeColor = button & 1 ? firstColor : secondColor;
         return true;
     }
+    
     return false;
 }
 
@@ -122,6 +130,10 @@ function updatePrintedStatus(square, color){
     }else if (!square.classList.contains("printed")){
         square.classList.add("printed");
     }
+}
+
+function getRandomColor(){
+    return "#" + ((Math.random() * 0xFFFFFF) | 0).toString(16).padStart(6, 0);
 }
 
 /** @param {HTMLDivElement} square */
