@@ -4,6 +4,8 @@ const firstColorInput = document.querySelector("#color-1");
 const secondColorInput = document.querySelector("#color-2");
 const pincelBtn = document.querySelector("#pincel");
 const eraserBtn = document.querySelector("#eraser");
+const clearBtn = document.querySelector("#clear");
+
 
 /** @type {HTMLInputElement} */
 const randomColorBox = document.querySelector("#random-color");
@@ -16,6 +18,11 @@ let secondColor = bgColor;
 let activeColor = firstColor;
 
 drawGrid(defaultGridSize);
+
+/**
+ * Clear button
+ */
+clearBtn.addEventListener("click", () => drawGrid(sizeRange.value));
 
 /**
  * Pincel
