@@ -54,6 +54,7 @@ header{
 .color-picker{
     display: flex;
     gap: 4px;
+    padding-top: 4px;
 }
 
 .controls .buttons{
@@ -119,4 +120,16 @@ header{
 
 .size input{
     width: 350px;
+}
+
+
+/* FOOTER */
+
+footer{
+    align-self: flex-start;
+    padding-left: 10px;
+}
+
+footer a{
+    color: #aaa;
 }
