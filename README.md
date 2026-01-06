@@ -12,7 +12,6 @@ Project created for The Odin Project course. It's a simple board that you can us
 
 * Finally, you can change the size of the squares on the board using the slider bar at the bottom.
 
-![alt text](https://github.com/strjakhk/Etch-a-Sketch/blob/main/etch-a-sketch.png)
 
 ## Future changes
 
@@ -20,3 +19,7 @@ Project created for The Odin Project course. It's a simple board that you can us
 - Implement an active effect when clicking on the options in the left panel.
 - Add a message when hovering over the cursor that display a brief description of the buttons
 - Implement a progressive darkening effect where each interaction darkens the square by 10%.
+
+## image
+
+![alt text](https://github.com/strjakhk/Etch-a-Sketch/blob/main/etch-a-sketch.png)
