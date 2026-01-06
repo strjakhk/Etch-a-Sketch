@@ -1,4 +1,7 @@
 const container = document.querySelector(".container");
+const sizeRange = document.querySelector("#size");
+const firstColorPicker = document.querySelector("#color-1");
+const secondColorPicker = document.querySelector("#color-2");
 
 const defaultGridSize = 16;
 
@@ -10,10 +13,21 @@ let activeColor = firstColor;
 drawGrid(defaultGridSize);
 
 /**
+ * Color pickers
+ */
+firstColorPicker.addEventListener("input", () =>{
+    firstColor = firstColorPicker.value;
+});
+
+secondColorPicker.addEventListener("input", () =>{
+    secondColor = secondColorPicker.value;
+});
+
+/**
  * size handler
  */
-document.querySelector("#size").addEventListener("input", (e) => {
-    const size = e.target.value;
+sizeRange.addEventListener("input", () => {
+    const size = sizeRange.value;
     const sizeValueNode = document.querySelector("#size-value");
     sizeValueNode.textContent = `${size} x ${size}`;
     drawGrid(size);
