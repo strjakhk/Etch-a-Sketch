@@ -12,7 +12,7 @@ const randomColorBox = document.querySelector("#random-color");
 
 const defaultGridSize = 16;
 
-let bgColor = "#ddd";
+let bgColor = "#fff";
 let firstColor = "#333";
 let secondColor = bgColor;
 let activeColor = firstColor;

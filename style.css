@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
 *{
     margin: 0px;
     padding: 0px;
@@ -8,6 +10,7 @@
     --container-width: 650px;
     --container-height: 650px;
     --bgColor: #1a1a1a;
+    --color-light: #ddd;
 }
 
 body{
@@ -16,23 +19,62 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-header{
-    text-align: center;
-    color: #ddd;
+    align-items: center;
 }
 
 main{
     display: flex;
     justify-content: center;
+    gap: 32px;
 }
 
+.audiowide-regular {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--color-light);
+}
+
+header{
+    text-align: right;
+    padding-bottom: 20px;
+    font-size: 2em;
+    width: var(--container-height);
+}
 /* CONTROLS */
 
 .controls{
+    margin-top: -100px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+}
+
+.color-picker{
+    display: flex;
+    gap: 4px;
+}
+
+.controls .buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.buttons button{
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: 0px 0px 2px var(--color-light);
+}
+
+.buttons button:hover{
+    background-color: #ccc;
+}
+.buttons button:active{
+    background-color: #ccc; 
 }
 
 
@@ -49,7 +91,7 @@ main{
     width: var(--container-width);
     height: var(--container-height);
 
-    background-color: #ddd;
+    background-color: #aaa;
     box-shadow: 0px 0px 5px #ddd;
     padding: 5px;
 
@@ -77,8 +119,4 @@ main{
 
 .size input{
     width: 350px;
-}
-
-output#size-value{
-    color: #ddd;
 }
